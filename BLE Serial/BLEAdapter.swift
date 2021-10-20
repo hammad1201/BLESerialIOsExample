@@ -132,6 +132,7 @@ class BLEAdapter: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                 print("ERROR: NO DATA from characteristic")
             }
         }
+        hammad
     }
     
     // MARK: - Adapter Functions
