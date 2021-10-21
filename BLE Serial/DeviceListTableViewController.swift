@@ -17,6 +17,8 @@ class DeviceListTableViewController: UITableViewController, ScanResultsConsumer 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Thread.sleep(forTimeInterval: 0.75)   //To make the launch screen stay for half seconds
+        
         adapter = BLEAdapter.sharedInstance
         adapter.initBluetooth(self)
         
@@ -80,17 +82,17 @@ class DeviceListTableViewController: UITableViewController, ScanResultsConsumer 
     // MARK: - Button Presses
     
     @IBAction func onScan(_ sender: UIBarButtonItem) {
+        startScan()
+    }
+    
+    func startScan() {
         if (adapter.scanning == true) {
             print("Already scanning - ignoring")
             return
         }
         
         if (adapter.poweredOn == false) {
-            utils.info(message : "Bluetooth is not available yet - is it switched on?",
-                       ui : self,
-                       cbOK: {
-                print("OK callback")
-            })
+            utils.showAlert(message: "Turn on Bluetooth to start scanning!", view: self)
             return
         }
         
@@ -106,11 +108,7 @@ class DeviceListTableViewController: UITableViewController, ScanResultsConsumer 
             let rc = adapter.findDevices(10, self) //Scan for 10 seconds
             
             if (rc == -1) {
-                utils.info(message : "Bluetooth is not available - is it switched on?",
-                           ui : self,
-                           cbOK: {
-                    print("OK callback")
-                })
+                utils.showAlert(message: "Turn on Bluetooth to start scanning!", view: self)
                 
             } else {
                 print("Setting up timer for when scanning is finished")
@@ -130,17 +128,9 @@ class DeviceListTableViewController: UITableViewController, ScanResultsConsumer 
         adapter.scanning = false
         
         if (adapter.peripherals.count > 0) {
-            let msg = "Finished scanning - found " + String(adapter.peripherals.count) + " devices"
-            utils.info(message : msg, ui : self,
-                       cbOK: {
-                print("OK callback")
-            })
+            utils.showAlert(message: "Finished Scanning!", view: self)
         } else {
-            let msg = "No devices were found"
-            utils.info(message : msg, ui : self,
-                       cbOK: {
-                print("OK callback")
-            })
+            utils.showAlert(message: "No Devices were Found!", view: self)
         }
     }
 }

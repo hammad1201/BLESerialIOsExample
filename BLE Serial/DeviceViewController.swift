@@ -64,21 +64,28 @@ class DeviceViewController: UIViewController, BluetoothOperationsConsumer {
             let textToSend: String = textToSendTextField.text!.trimString()
             
             if (textToSend != "") {
-                adapter.writeRXCharacteristic(text: textToSend)
+                adapter.send(text: textToSend)
             } else {
-                utils.error(message: "Enter something to send!", ui: self, cbOK: {
-                    print("OK callback")
-                })
+                utils.showAlert(message: "Type something to send!!", view: self)
             }
         } else {
-            utils.error(message: "Not Connected!", ui: self, cbOK: {
-                print("OK callback")
-            })
+            utils.showAlert(message: "Connect to a Device first!", view: self)
         }
     }
     
     @IBAction func donePressed(_ sender: Any) {
         self.dismissKeyboard()
+    }
+    @IBAction func infoButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Info", message: "This app uses the Nordic UART Service to connect to peripherals and exchange data. The esp32 Arduino Example to work with this app can be found at \"https://github.com/hammad1201/NordicUARTExampleEsp32\"", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Visit Link", style: .default, handler: {action in
+            UIApplication.shared.open(URL(string: "https://github.com/hammad1201/NordicUARTExampleEsp32")!)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Delegate Functions
@@ -112,8 +119,7 @@ class DeviceViewController: UIViewController, BluetoothOperationsConsumer {
         sendButton.isEnabled = false
         
         receivedTextLabel.text = "..............."
-        
-        utils.error(message : "Failed to connect: \(String(describing: error))", ui : self, cbOK: {})
+        utils.showAlert(message: "Failed to connect!", view: self)
     }
     
     func onDisconnected() {
@@ -146,7 +152,7 @@ class DeviceViewController: UIViewController, BluetoothOperationsConsumer {
         adapter.setTXCharacteristicNotifications(state: true)
     }
     
-    func onTXCharacteristicNotification(_ receivedString: String) {
+    func receive(_ receivedString: String) {
         receivedTextLabel.text = receivedString
         print(receivedString)
     }

@@ -7,7 +7,7 @@
 		<string>bluetooth-central</string>
 	</array>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Uses Bluetooth to communicate with connected peripherals</string>
+	<string>Uses Bluetooth to communicate with connected peripherals.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

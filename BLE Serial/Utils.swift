@@ -10,28 +10,15 @@ import UIKit
 class Utils {
     static let sharedInstance = Utils()
     
-    func info(message: String, ui: UIViewController, cbOK: @escaping () -> Void) {
-        let dialog = UIAlertController(title: "Information", message: message, preferredStyle: UIAlertController.Style.alert)
+    // MARK: Show Alert Function
+    func showAlert(message:String, view: UIViewController) {
+        let alertDisapperTimeInSeconds = 2.0
         
-        let OKAction = UIAlertAction(title: "OK", style: .default) {
-            (action) in cbOK()
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+        view.present(alert, animated: true)
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + alertDisapperTimeInSeconds) {
+          alert.dismiss(animated: true)
         }
-        dialog.addAction(OKAction)
-        
-        // Present the dialog
-        ui.present(dialog,animated: false, completion: nil)
-    }
-    
-    
-    func error(message: String, ui: UIViewController, cbOK: @escaping () -> Void) {
-        let dialog = UIAlertController(title: "ERROR", message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        let OKAction = UIAlertAction(title: "OK", style: .default) {
-            (action) in cbOK()
-        }
-        dialog.addAction(OKAction)
-        
-        // Present the dialog
-        ui.present(dialog,animated: false, completion: nil)
     }
 }

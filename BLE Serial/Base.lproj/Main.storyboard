@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dvE-NQ-ejs">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -25,7 +26,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5O-N3-36A">
-                                            <rect key="frame" x="16" y="11" width="362" height="20"/>
+                                            <rect key="frame" x="56" y="11" width="322" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="0zH-EG-YKO"/>
                                             </constraints>
@@ -34,7 +35,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbg-e4-xh4">
-                                            <rect key="frame" x="16" y="39" width="382" height="23"/>
+                                            <rect key="frame" x="56" y="39" width="342" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="lEC-nm-uvg"/>
                                             </constraints>
@@ -42,15 +43,25 @@
                                             <color key="textColor" systemColor="linkColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetooth_icon" translatesAutoresizingMaskIntoConstraints="NO" id="WNb-4b-Guw">
+                                            <rect key="frame" x="15" y="8" width="25" height="54"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="PSi-HL-1bN"/>
+                                                <constraint firstAttribute="height" constant="55" id="Stu-tW-hkI"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="wbg-e4-xh4" secondAttribute="bottom" constant="8" id="348-iS-Flt"/>
+                                        <constraint firstItem="WNb-4b-Guw" firstAttribute="top" secondItem="fTV-c3-pKV" secondAttribute="top" constant="8" id="2uX-PB-LwB"/>
                                         <constraint firstAttribute="trailing" secondItem="wbg-e4-xh4" secondAttribute="trailing" constant="16" id="8u9-KN-LzT"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="F5O-N3-36A" secondAttribute="trailing" constant="16" id="Ccq-U0-YeM"/>
-                                        <constraint firstItem="F5O-N3-36A" firstAttribute="leading" secondItem="fTV-c3-pKV" secondAttribute="leading" constant="16" id="SS9-8W-RWA"/>
+                                        <constraint firstAttribute="bottom" secondItem="wbg-e4-xh4" secondAttribute="bottom" constant="11" id="L88-Hx-n8W"/>
+                                        <constraint firstItem="F5O-N3-36A" firstAttribute="leading" secondItem="WNb-4b-Guw" secondAttribute="trailing" constant="16" id="ZVz-cZ-hct"/>
+                                        <constraint firstItem="WNb-4b-Guw" firstAttribute="leading" secondItem="fTV-c3-pKV" secondAttribute="leading" constant="15" id="aZ6-L6-Ez5"/>
                                         <constraint firstItem="wbg-e4-xh4" firstAttribute="top" secondItem="F5O-N3-36A" secondAttribute="bottom" constant="8" id="bDO-O1-HfY"/>
+                                        <constraint firstAttribute="bottom" secondItem="WNb-4b-Guw" secondAttribute="bottom" constant="8" id="ec2-qY-7Or"/>
                                         <constraint firstItem="F5O-N3-36A" firstAttribute="top" secondItem="fTV-c3-pKV" secondAttribute="topMargin" id="gF4-FT-hKm"/>
-                                        <constraint firstItem="wbg-e4-xh4" firstAttribute="leading" secondItem="fTV-c3-pKV" secondAttribute="leading" constant="16" id="uTX-6C-ACM"/>
+                                        <constraint firstItem="wbg-e4-xh4" firstAttribute="leading" secondItem="WNb-4b-Guw" secondAttribute="trailing" constant="16" id="vGF-bD-WgJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -77,9 +88,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6yX-yR-kK3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928" y="98"/>
+            <point key="canvasLocation" x="927.536231884058" y="97.767857142857139"/>
         </scene>
-        <!--Device View Controller-->
+        <!--Communication Terminal-->
         <scene sceneID="zzo-W9-s8G">
             <objects>
                 <viewController id="aTV-In-DfW" customClass="DeviceViewController" customModule="BLE_Serial" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,6 +98,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.17999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetooth_icon_grey" translatesAutoresizingMaskIntoConstraints="NO" id="HFh-CU-auq">
+                                <rect key="frame" x="32" y="138" width="350" height="674"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name: xxx, UUID: yyy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3h-07-CjK">
                                 <rect key="frame" x="16" y="132" width="382" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -101,7 +115,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Connect to Device">
-                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
@@ -171,7 +185,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..............." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vob-A3-n4J">
                                 <rect key="frame" x="16" y="346.5" width="382" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" systemColor="systemTealColor"/>
+                                <color key="textColor" systemColor="linkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7j-5F-0MG">
@@ -187,6 +201,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vob-A3-n4J" firstAttribute="leading" secondItem="IUG-JA-1Ab" secondAttribute="leading" constant="16" id="0C7-X7-qA8"/>
+                            <constraint firstItem="HFh-CU-auq" firstAttribute="top" secondItem="IUG-JA-1Ab" secondAttribute="top" constant="50" id="24Z-Pr-zzR"/>
                             <constraint firstItem="T3h-07-CjK" firstAttribute="top" secondItem="PGV-yX-1tM" secondAttribute="bottom" constant="8" id="4YJ-2j-Vr4"/>
                             <constraint firstItem="Kdn-qt-fiH" firstAttribute="top" secondItem="Fci-ne-8z0" secondAttribute="bottom" constant="8" id="5a1-2n-16a"/>
                             <constraint firstItem="5vm-jy-rrr" firstAttribute="top" secondItem="onT-ys-tJX" secondAttribute="bottom" constant="64" id="6sx-Sk-CTZ"/>
@@ -196,13 +211,16 @@
                             <constraint firstItem="IUG-JA-1Ab" firstAttribute="trailing" secondItem="5vm-jy-rrr" secondAttribute="trailing" constant="100" id="Brm-qS-EBu"/>
                             <constraint firstItem="IUG-JA-1Ab" firstAttribute="trailing" secondItem="n5p-4x-v6k" secondAttribute="trailing" constant="16" id="Bvq-s8-3Wz"/>
                             <constraint firstItem="IUG-JA-1Ab" firstAttribute="trailing" secondItem="m7j-5F-0MG" secondAttribute="trailing" constant="160" id="Cmo-g1-lnu"/>
+                            <constraint firstAttribute="trailing" secondItem="HFh-CU-auq" secondAttribute="trailing" constant="32" id="FOq-pO-RcF"/>
                             <constraint firstItem="onT-ys-tJX" firstAttribute="top" secondItem="n5p-4x-v6k" secondAttribute="bottom" constant="8" id="FzU-Ve-4Uu"/>
                             <constraint firstItem="IUG-JA-1Ab" firstAttribute="trailing" secondItem="PGV-yX-1tM" secondAttribute="trailing" constant="16" id="Gv3-QY-JNT"/>
                             <constraint firstItem="m7j-5F-0MG" firstAttribute="leading" secondItem="IUG-JA-1Ab" secondAttribute="leading" constant="160" id="JKO-D9-YY3"/>
                             <constraint firstItem="PGV-yX-1tM" firstAttribute="top" secondItem="IUG-JA-1Ab" secondAttribute="top" constant="16" id="KdK-Ll-AAk"/>
                             <constraint firstItem="Fci-ne-8z0" firstAttribute="leading" secondItem="IUG-JA-1Ab" secondAttribute="leading" constant="16" id="LUv-lR-2Gd"/>
+                            <constraint firstItem="HFh-CU-auq" firstAttribute="centerX" secondItem="tKE-UV-QDf" secondAttribute="centerX" id="Rpb-Hg-BKV"/>
                             <constraint firstItem="n5p-4x-v6k" firstAttribute="top" secondItem="vob-A3-n4J" secondAttribute="bottom" constant="32" id="UM8-ta-Js0"/>
                             <constraint firstItem="IUG-JA-1Ab" firstAttribute="trailing" secondItem="Kdn-qt-fiH" secondAttribute="trailing" constant="16" id="WRv-ME-00t"/>
+                            <constraint firstItem="HFh-CU-auq" firstAttribute="leading" secondItem="tKE-UV-QDf" secondAttribute="leading" constant="32" id="Z9C-Xd-itV"/>
                             <constraint firstItem="IUG-JA-1Ab" firstAttribute="trailing" secondItem="Bdk-vf-rsS" secondAttribute="trailing" constant="16" id="aLE-iB-638"/>
                             <constraint firstItem="IUG-JA-1Ab" firstAttribute="trailing" secondItem="T3h-07-CjK" secondAttribute="trailing" constant="16" id="brh-lG-e8d"/>
                             <constraint firstItem="onT-ys-tJX" firstAttribute="leading" secondItem="IUG-JA-1Ab" secondAttribute="leading" constant="16" id="db4-PV-pi6"/>
@@ -211,6 +229,7 @@
                             <constraint firstItem="n5p-4x-v6k" firstAttribute="leading" secondItem="IUG-JA-1Ab" secondAttribute="leading" constant="16" id="fcB-eh-6uw"/>
                             <constraint firstItem="PGV-yX-1tM" firstAttribute="leading" secondItem="IUG-JA-1Ab" secondAttribute="leading" constant="16" id="glK-Sg-uCO"/>
                             <constraint firstItem="IUG-JA-1Ab" firstAttribute="trailing" secondItem="vob-A3-n4J" secondAttribute="trailing" constant="16" id="l5R-QX-KhA"/>
+                            <constraint firstItem="IUG-JA-1Ab" firstAttribute="bottom" secondItem="HFh-CU-auq" secondAttribute="bottom" constant="50" id="msV-2x-GTs"/>
                             <constraint firstItem="vob-A3-n4J" firstAttribute="top" secondItem="Bdk-vf-rsS" secondAttribute="bottom" constant="8" id="nBe-6U-mM4"/>
                             <constraint firstItem="Kdn-qt-fiH" firstAttribute="leading" secondItem="IUG-JA-1Ab" secondAttribute="leading" constant="16" id="nxl-hF-wWc"/>
                             <constraint firstItem="IUG-JA-1Ab" firstAttribute="trailing" secondItem="onT-ys-tJX" secondAttribute="trailing" constant="16" id="rL3-OC-rIR"/>
@@ -218,7 +237,13 @@
                             <constraint firstItem="T3h-07-CjK" firstAttribute="leading" secondItem="IUG-JA-1Ab" secondAttribute="leading" constant="16" id="xIR-Ci-NUn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0K3-lB-Gdf"/>
+                    <navigationItem key="navigationItem" title="Communication Terminal" id="0K3-lB-Gdf">
+                        <barButtonItem key="rightBarButtonItem" title="Info" image="info.circle" catalog="system" id="Jg5-MD-aHW">
+                            <connections>
+                                <action selector="infoButtonPressed:" destination="aTV-In-DfW" id="gEU-xj-pt3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="connectButton" destination="5vm-jy-rrr" id="gw3-YB-ORX"/>
                         <outlet property="deviceDetailsLabel" destination="T3h-07-CjK" id="CNt-G6-PlC"/>
@@ -252,6 +277,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bluetooth_icon" width="458" height="777"/>
+        <image name="bluetooth_icon_grey" width="458" height="777"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -263,9 +291,6 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

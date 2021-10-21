@@ -20,7 +20,7 @@ protocol BluetoothOperationsConsumer {
     func onServicesDiscovered()
     func onRXDiscovered()
     func onTXDiscovered()
-    func onTXCharacteristicNotification(_ receivedString: String)
+    func receive(_ receivedString: String)
 }
 
 class BLEAdapter: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
@@ -127,7 +127,7 @@ class BLEAdapter: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         if characteristic.service!.uuid == CBUUID(string: UART_SERVICE_UUID) && characteristic.uuid == CBUUID(string: TX_CHARACTERISTIC_UUID) {
             if let data = characteristic.value {
                 let receivedString = String(decoding: data, as: UTF8.self)
-                bluetoothOperationsConsumer?.onTXCharacteristicNotification(receivedString)
+                bluetoothOperationsConsumer?.receive(receivedString)
             } else {
                 print("ERROR: NO DATA from characteristic")
             }
@@ -135,13 +135,12 @@ class BLEAdapter: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     // MARK: - Adapter Functions
-    func initBluetooth(_ deviceList : DeviceListTableViewController) -> Int {
+    func initBluetooth(_ deviceList : DeviceListTableViewController) {
         poweredOn = false
         scanning = false
         connected = false
         self.centralManager = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerOptionRestoreIdentifierKey:"hammad"])
         self.scanResultsConsumer = deviceList
-        return 0
     }
     
     func findDevices(_ timeout: Int, _ consumer: ScanResultsConsumer) -> Int {
@@ -248,7 +247,7 @@ class BLEAdapter: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         }
     }
     
-    func writeRXCharacteristic(text: String) {
+    func send(text: String) {
         let textStringUTF8 = Data(text.utf8)
         selectedPeripheral?.writeValue(textStringUTF8, for: rxCharacteristic!, type: .withResponse)
     }
