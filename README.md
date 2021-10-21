@@ -59,3 +59,11 @@ Here is a screenshot of the data received to the esp32, which is displayed on Se
 This messages opens when the info button is presses on the top-right corner of the screen.
 
 <img src="https://github.com/hammad1201/Images/blob/main/IMG_5088.PNG" alt="Info" width="250px" height="500px">
+
+# Contact me
+Name: Muhammad Hammad
+Email: [muhammad.hammad1201@gmail.com](mailto:muhammad.hammad1201@gmail.com)
+LinkedIn: [https://www.linkedin.com/in/muhammad-hammad-174984175/](https://www.linkedin.com/in/muhammad-hammad-174984175/)
+Fiverr: [https://www.fiverr.com/mhammad1201](https://www.fiverr.com/mhammad1201)
+
+----------------------------------------------------------------------------------------------------------
