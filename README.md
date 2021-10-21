@@ -18,6 +18,8 @@ Clone the source code and open it in xCode. You'll need an apple computer and an
 # Esp32 Part
 Download or clone [this](https://github.com/hammad1201/NordicUARTExampleEsp32) repository and open the **Nordic_UART_Example.ino** file. Upload it to esp32 to start advertising.
 
+![Esp32 Arduino Code](https://github.com/hammad1201/Images/blob/main/Screenshot%202021-10-21%20at%205.07.55%20PM.png)
+
 # Screenshots
 Here are some screenshots of the iPhone communication with esp32 using Nordic UART Service.
 
@@ -51,7 +53,7 @@ Once Connected, then we can exchange text messages between iPhone and the esp32.
 ## Esp32 Data Received
 Here is a screenshot of the data received to the esp32, which is displayed on Serial monitor.
 
-<img src="https://github.com/hammad1201/Images/blob/main/Screenshot%202021-10-21%20at%204.16.40%20PM.png" alt="Esp32 Data Received" width="250px" height="500px">
+![Esp32 Data Received](https://github.com/hammad1201/Images/blob/main/Screenshot%202021-10-21%20at%204.16.40%20PM.png)
 
 ## Info
 This messages opens when the info button is presses on the top-right corner of the screen.
