@@ -24,7 +24,8 @@ Here are some screenshots of the iPhone communication with esp32 using Nordic UA
 ## Splash Screen
 This is the splash screen for the app.
 
-![Splash Screen](https://github.com/hammad1201/Images/blob/main/IMG_5085.PNG)
+<img src="https://github.com/hammad1201/Images/blob/main/IMG_5085.PNG" alt="Splash Screen" width="250px" height="600px">
+
 
 ## Scan Screen
 Press the scan button to start scanning for BLE Peripherals. Select a device to connect to it.
