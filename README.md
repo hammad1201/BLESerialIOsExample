@@ -62,8 +62,11 @@ This messages opens when the info button is presses on the top-right corner of t
 
 # Contact me
 Name: Muhammad Hammad
+
 Email: [muhammad.hammad1201@gmail.com](mailto:muhammad.hammad1201@gmail.com)
+
 LinkedIn: [https://www.linkedin.com/in/muhammad-hammad-174984175/](https://www.linkedin.com/in/muhammad-hammad-174984175/)
+
 Fiverr: [https://www.fiverr.com/mhammad1201](https://www.fiverr.com/mhammad1201)
 
 ----------------------------------------------------------------------------------------------------------
